@@ -1,0 +1,201 @@
+/*
+$brakepoint: 
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+1em = 16px (default browser font size) 
+*/
+*,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%; }
+  @media only screen and (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media only screen and (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media only screen and (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
+
+body {
+  box-sizing: border-box; }
+  @media only screen and (max-width: 56.25em) {
+    body {
+      padding: 0; } }
+
+fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0; }
+
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.7;
+  background-color: #F6F2E6;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat; }
+
+a {
+  color: #fff;
+  text-decoration: none; }
+
+.error {
+  color: red; }
+
+.u-center-text {
+  text-align: center !important; }
+
+.u-margin-bottom-small {
+  margin-bottom: 1.4rem !important; }
+
+.u-margin-bottom-medium {
+  margin-bottom: 4rem !important; }
+  @media only screen and (max-width: 56.25em) {
+    .u-margin-bottom-medium {
+      margin-bottom: 3rem !important; } }
+
+.u-margin-bottom-big {
+  margin-bottom: 8rem !important; }
+  @media only screen and (max-width: 56.25em) {
+    .u-margin-bottom-big {
+      margin-bottom: 5rem !important; } }
+
+.u-margin-top-big {
+  margin-top: 8rem !important; }
+
+.u-margin-top-huge {
+  margin-top: 10rem !important; }
+
+.header {
+  width: 100%;
+  height: 10rem;
+  background-color: #363002;
+  color: #fff; }
+  .header__container {
+    margin: auto;
+    max-width: 128rem; }
+
+.globalNav {
+  width: 100%;
+  border-bottom: 1px solid #260e04; }
+  .globalNav__container {
+    display: flex;
+    max-width: 128rem;
+    margin: auto; }
+  .globalNav__item {
+    display: inline-block;
+    color: #260e04;
+    text-align: center;
+    width: 100%;
+    cursor: pointer;
+    transition: all .2s; }
+    .globalNav__item:hover {
+      background-color: #FEE89E;
+      color: red; }
+
+.footer {
+  width: 100%;
+  height: 30rem;
+  background-color: #363002;
+  color: #fff; }
+  .footer__container {
+    margin: auto;
+    max-width: 128rem; }
+
+.home {
+  width: 100%; }
+  .home .home__filter__container, .home .home__result {
+    margin: auto;
+    max-width: 128rem; }
+  .home__filter {
+    background-color: #FEE89E;
+    border-bottom: 1px solid #5B6340; }
+  .home__result {
+    padding: 5rem 0;
+    display: grid;
+    grid-gap: 5rem;
+    grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr)); }
+
+.about {
+  margin: auto;
+  max-width: 128rem;
+  padding: 4rem; }
+
+.contact {
+  margin: auto;
+  max-width: 128rem;
+  margin-bottom: 5rem; }
+  .contact__map {
+    float: left;
+    width: 50%;
+    height: 40rem;
+    border: 2px solid #363002;
+    margin: 2rem; }
+    @media only screen and (max-width: 56.25em) {
+      .contact__map {
+        width: 80%;
+        margin: auto;
+        float: none; } }
+    @media only screen and (max-width: 37.5em) {
+      .contact__map {
+        width: 90%;
+        height: 30rem; } }
+  .contact__info {
+    display: flex;
+    flex-direction: column;
+    float: left;
+    padding: 2rem; }
+    .contact__info div {
+      margin: 2rem; }
+    @media only screen and (max-width: 56.25em) {
+      .contact__info {
+        float: none;
+        flex-direction: row; } }
+    @media only screen and (max-width: 37.5em) {
+      .contact__info {
+        flex-direction: column; } }
+  .contact:after {
+    content: '';
+    display: block;
+    clear: both; }
+
+.propertyCard {
+  min-width: 23rem;
+  border: 1px solid #5B6340; }
+  .propertyCard h3 {
+    width: 100%;
+    color: white;
+    font-size: 2.2rem;
+    font-weight: 400;
+    background-color: #5B6340;
+    margin: 0; }
+  .propertyCard__image {
+    width: 100%;
+    height: 15rem;
+    object-fit: cover;
+    display: block; }
+  .propertyCard__info {
+    width: 100%; }
+    .propertyCard__info__location {
+      width: 100%; }
+    .propertyCard__info__rooms {
+      width: 30%;
+      float: left; }
+    .propertyCard__info:after {
+      content: '';
+      display: block;
+      clear: both; }

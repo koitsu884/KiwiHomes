@@ -1,0 +1,50 @@
+.contact {
+    margin: auto;
+    max-width: $content-max-width;
+    margin-bottom: 5rem;
+
+    &__map{
+        float: left;
+        width: 50%;
+        height: 40rem;
+        border: 2px solid $color-primary;
+        margin: 2rem;
+
+        @include respond(tab-port) {
+            width: 80%;
+            margin: auto;
+            float:none;
+        }
+
+        @include respond(phone) {
+            width: 90%;
+            height: 30rem;
+        }
+    }
+
+    &__info{
+        display:flex;
+        flex-direction: column;
+        float:left;
+        padding:2rem;
+
+        div {
+            margin: 2rem;
+        }
+        
+        @include respond(tab-port) {
+            float:none;
+            flex-direction: row;
+        }
+
+        @include respond(phone) {
+            flex-direction: column;
+        }
+    }
+
+    &:after{
+        content:'';
+        display:block;
+        clear:both;
+    }
+}

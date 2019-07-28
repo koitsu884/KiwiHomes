@@ -1,0 +1,20 @@
+body {
+    font-family: $font-primary;
+    font-weight: 400;
+    font-size: $default-font-size;
+    line-height: 1.7;
+    background-color: $color-secondary-light;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+a {
+    color: $color-white;
+    text-decoration: none;
+}
+
+.error {
+    color: red;
+}

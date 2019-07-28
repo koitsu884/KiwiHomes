@@ -1,0 +1,15 @@
+export const SIGN_IN = 'SIGN_IN';
+export const SIGN_OUT = 'SIGN_OUT';
+export const SET_CURRENT_USER = 'SET_CURRENT_USER';
+
+export const SEARCH_PROPERTIES = 'SEARCH_PROPERTIES';
+export const SET_PROPERTIES = 'SET_PROPERTIES';
+export const GET_PROPERTY = 'GET_PROPERTY';
+export const ADD_PROPERTY = 'ADD_PROPERTY';
+export const UPDATE_PROPERTY = 'UPDATE_PROPERTY';
+export const DELETE_PROPERTY = 'DELETE_PROPERTY';
+
+export const SET_ERRORS = 'SET_ERRORS';
+export const CLEAR_ERRORS = 'CLEAR_ERRORS';
+
+export const UPDATE_USER_PROFILE = 'UPDATE_USER_PROFILE';
