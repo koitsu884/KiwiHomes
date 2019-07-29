@@ -11,6 +11,9 @@ import Footer from './Footer';
 import Home from './Home';
 import About from './About';
 import Contact from './Contact';
+import PropertyDetails from './PropertyDetails';
+import Signin from './auth/Signin';
+import Signup from './auth/Signup';
 
 if (localStorage.jwtToken) {
     //setAuthToken(localStorage.jwtToken);
@@ -24,8 +27,11 @@ const App = () => {
             <Header />
             <GlobalNav />
               <Route path="/" exact component={Home} />
+              <Route path="/signin" exact component={Signin} />
+              <Route path="/signup" exact component={Signup} />
               <Route path="/about" exact component={About} />
               <Route path="/contact" exact component={Contact} />
+              <Route path="/property" exact component={PropertyDetails} />
             <Footer />
             </Router>
         </Provider>

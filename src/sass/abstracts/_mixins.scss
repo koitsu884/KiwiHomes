@@ -21,3 +21,11 @@ $brakepoint:
         @media only screen and (min-width: 112.5em) { @content }; //1800px
     }
 }
+
+@mixin clearfix {
+    &::after{
+        content:'';
+        display:block;
+        clear:both;
+    }
+}

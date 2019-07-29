@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { Link} from 'react-router-dom';
 
 import { connect} from 'react-redux';
 import { searchProperties} from '../actions/propertyActions';
+import Filter from './search/Filter';
 
 class Home extends Component {
     componentDidMount(){
@@ -12,7 +14,9 @@ class Home extends Component {
         return this.props.properties.map(property => {
             return (
                 <div className="propertyCard" key={property._id}>
+                    <Link to = "/property">
                     <img className="propertyCard__image" src={property.imageUrl} />
+                    </Link>
                     <h3>{property.title}</h3>
                     <div className="propertyCard__info">
                         <div className="propertyCard__info__location">{property.suburb}, {property.city}</div>
@@ -28,13 +32,7 @@ class Home extends Component {
         return (
             <main className="home">
                 <div className="home__filter">
-                    <div className="home__filter__container">
-                        <div>Search by map</div>
-                        <div>Region</div>
-                        <div>City</div>
-                        <div>Suburb</div>
-                        <div>Property TYpe</div>
-                    </div>
+                    <Filter />
                 </div>
                 <div className="home__result">
                     {this.renderPropertyList()}

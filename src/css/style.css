@@ -38,6 +38,85 @@ fieldset {
   margin: 0;
   min-width: 0; }
 
+/* Toggle switch */
+.switch {
+  position: relative; }
+  .switch label {
+    width: 6rem;
+    height: 3rem;
+    background-color: #F6F2E6;
+    position: relative;
+    display: inline-block;
+    border-radius: 3.1rem;
+    transition: all .4s; }
+    .switch label:after {
+      content: '';
+      position: absolute;
+      width: 3rem;
+      height: 3rem;
+      border-radius: 100%;
+      left: 0;
+      top: 0;
+      z-index: 2;
+      background-color: #fff;
+      box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+      transition: all .4s; }
+  .switch input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    opacity: 0;
+    cursor: pointer; }
+  .switch input:checked + label {
+    background-color: #CBA716; }
+    .switch input:checked + label:after {
+      left: 4rem; }
+
+.select {
+  overflow: hidden;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  border-radius: 4px;
+  background: #fff; }
+  .select:before {
+    position: absolute;
+    top: 1.6rem;
+    right: 1rem;
+    width: 0;
+    height: 0;
+    padding: 0;
+    content: '';
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #fff;
+    pointer-events: none;
+    z-index: 1; }
+  .select:after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 3.2rem;
+    background-color: #260e04;
+    pointer-events: none;
+    content: ''; }
+  .select select {
+    width: 100%;
+    padding: 1rem 4rem 1rem 2rem;
+    cursor: pointer;
+    text-indent: 0.01px;
+    text-overflow: ellipsis;
+    border: none;
+    outline: none;
+    background: transparent;
+    background-image: none;
+    box-shadow: none;
+    appearance: none; }
+
 body {
   font-family: "Noto Sans JP", sans-serif;
   font-weight: 400;
@@ -84,10 +163,17 @@ a {
   width: 100%;
   height: 10rem;
   background-color: #363002;
-  color: #fff; }
+  color: #fff;
+  position: relative; }
   .header__container {
     margin: auto;
     max-width: 128rem; }
+  .header__auth {
+    position: absolute;
+    right: 5rem;
+    display: flex; }
+    .header__auth__item {
+      margin: 0 1rem; }
 
 .globalNav {
   width: 100%;
@@ -173,6 +259,45 @@ a {
     display: block;
     clear: both; }
 
+.propertyDetails {
+  margin: auto;
+  max-width: 128rem;
+  padding: 4rem; }
+  .propertyDetails__garelly {
+    width: 100%;
+    height: 50vh;
+    border: 1px solid #363002; }
+    @media only screen and (max-width: 56.25em) {
+      .propertyDetails__garelly {
+        height: 30vh; } }
+  .propertyDetails__info {
+    display: flex; }
+    .propertyDetails__info div {
+      margin: 5rem; }
+    @media only screen and (max-width: 37.5em) {
+      .propertyDetails__info {
+        flex-direction: column; }
+        .propertyDetails__info div {
+          margin: 2rem; } }
+
+.signIn {
+  margin: auto;
+  max-width: 128rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .signIn__form {
+    display: flex;
+    flex-direction: column;
+    width: 70rem; }
+    .signIn__form input {
+      width: 100%; }
+
+.signUp {
+  margin: auto;
+  max-width: 128rem;
+  padding: 4rem; }
+
 .propertyCard {
   min-width: 23rem;
   border: 1px solid #5B6340; }
@@ -199,3 +324,24 @@ a {
       content: '';
       display: block;
       clear: both; }
+
+.filter {
+  margin: auto;
+  max-width: 128rem; }
+  .filter::after {
+    content: '';
+    display: block;
+    clear: both; }
+  .filter__item {
+    float: left;
+    margin: 1rem 2rem; }
+    .filter__item__price {
+      display: flex;
+      align-items: center; }
+      .filter__item__price div {
+        margin-right: 1rem; }
+    .filter__item__rooms {
+      display: flex;
+      align-items: center; }
+      .filter__item__rooms div {
+        margin-right: 1rem; }

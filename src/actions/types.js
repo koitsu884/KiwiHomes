@@ -1,6 +1,5 @@
 export const SIGN_IN = 'SIGN_IN';
 export const SIGN_OUT = 'SIGN_OUT';
-export const SET_CURRENT_USER = 'SET_CURRENT_USER';
 
 export const SEARCH_PROPERTIES = 'SEARCH_PROPERTIES';
 export const SET_PROPERTIES = 'SET_PROPERTIES';

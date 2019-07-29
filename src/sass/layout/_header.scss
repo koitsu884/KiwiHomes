@@ -3,9 +3,20 @@
     height: 10rem;
     background-color: $color-primary;
     color: #fff;
+    position: relative;
 
     &__container{
         margin: auto;
         max-width: $content-max-width;
+    }
+
+    &__auth{
+        position: absolute;
+        right: 5rem;
+        display: flex;
+
+        &__item{
+            margin: 0 1rem;
+        }
     }
 }
