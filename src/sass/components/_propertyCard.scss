@@ -20,13 +20,26 @@
 
     &__info {
         width: 100%;
+        .icon {
+            margin: 0 1rem;
+        }
+
         &__location {
             width: 100%;
+            display:flex;
+            align-items: center;
         }
 
         &__rooms{
             width: 30%;
             float:left;
+            display:flex;
+            align-items: center;
+        }
+
+        &__price {
+            display:flex;
+            align-items: center;
         }
 
         &:after{

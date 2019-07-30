@@ -1,38 +1,52 @@
 import React, { Component } from 'react';
-import { Link} from 'react-router-dom';
-
 import { connect} from 'react-redux';
+import { ReactComponent as SearchIcon } from '../images/SVG/magnifying-glass.svg';
+
 import { searchProperties} from '../actions/propertyActions';
 import Filter from './search/Filter';
+import PropertyCard from './property/PropertyCard';
 
 class Home extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            filterOpen: false
+        };
+    }
+
     componentDidMount(){
         this.props.searchProperties();
+    }
+
+    toggleFilter = () => {
+        this.setState({
+            filterOpen: !this.state.filterOpen
+        });
     }
 
     renderPropertyList(){
         return this.props.properties.map(property => {
             return (
-                <div className="propertyCard" key={property._id}>
-                    <Link to = "/property">
-                    <img className="propertyCard__image" src={property.imageUrl} />
-                    </Link>
-                    <h3>{property.title}</h3>
-                    <div className="propertyCard__info">
-                        <div className="propertyCard__info__location">{property.suburb}, {property.city}</div>
-                        <div className="propertyCard__info__rooms">{property.rooms}</div>
-                        <div className="propertyCard__info__price">{property.price}</div>
-                    </div>
-                </div>
+                <PropertyCard property={property} key={property._id} />
             )
         })
     }
 
+    onFilterChange = filter => {
+        this.props.searchProperties(filter);
+    }
+
     render() {
+        let searchFilterClassName = "home__search__filter" + (this.state.filterOpen ? " open" : ""); 
         return (
             <main className="home">
-                <div className="home__filter">
-                    <Filter />
+                <div className="home__search">
+                    <div className="home__search__phoneMenu" onClick={this.toggleFilter} >
+                        <SearchIcon /> <p>{this.state.filterOpen ? " Close " : " Open "} filter</p>
+                    </div>
+                    <div className={searchFilterClassName}>
+                       <Filter onFilterChange={this.onFilterChange} />
+                    </div>
                 </div>
                 <div className="home__result">
                     {this.renderPropertyList()}

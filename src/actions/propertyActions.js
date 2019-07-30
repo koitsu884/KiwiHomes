@@ -38,7 +38,7 @@ const properties = [
         title: "Something funcy",
         imageUrl: require("../images/houses/apartment2.jpg"),
         region: "Wellington",
-        city: "Lower Hutt City",
+        city: "Upper Hutt City",
         suburb: "Belmont",
         rooms: 3,
         price: 1000000
@@ -47,9 +47,9 @@ const properties = [
         _id: 5,
         title: "Title 5",
         imageUrl: require("../images/houses/unit.jpg"),
-        region: "Wellington",
-        city: "Lower Hutt City",
-        suburb: "Belmont",
+        region: "Canterbury",
+        city: "Christchurch",
+        suburb: "Hornby",
         rooms: 3,
         price: 1000000
     },
@@ -77,9 +77,9 @@ const properties = [
         _id: 8,
         title: "Title 8",
         imageUrl: require("../images/houses/house.jpg"),
-        region: "Wellington",
-        city: "Lower Hutt City",
-        suburb: "Belmont",
+        region: "Auckland",
+        city: "Auckland",
+        suburb: "Mt Albert",
         rooms: 3,
         price: 1000000
     }
@@ -87,10 +87,17 @@ const properties = [
 
 export const searchProperties = (filters) => dispatch => {
     /* --- Search logic here ---*/
-    console.log(filters);
+    let results = filters ? properties.filter(property => {
+            if(filters.region !== "" && filters.region !== property.region) return false;
+            if(filters.city !== "" && filters.city !== property.city) return false;
+            if(filters.suburb !== "" && filters.suburb !== property.suburb) return false;
+
+            return true;
+        }   
+    ) : properties;
     
     dispatch({
         type: SET_PROPERTIES,
-        payload: properties
+        payload: results
     });
 }

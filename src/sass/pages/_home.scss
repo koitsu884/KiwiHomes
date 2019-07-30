@@ -1,24 +1,59 @@
 .home {
     width: 100%;
 
-    %container {
-        margin: auto;
-        max-width: $content-max-width;
-    }
-
-    &__filter{
-        background-color: $color-secondary;
+    &__search{
+        position: relative;
         border-bottom: 1px solid $color-primary-light;
-        &__container{
-            @extend %container;
+
+        @include respond(phone){
+            height: 6rem;
+        }
+
+        &__filter{
+            transition: .2s;
+            background-color: $color-secondary;
+
+            @include respond(phone){
+                position: absolute;
+                top: 6rem;
+                left: -110vw;
+                height: 95vh;
+                width: 100vw;
+            }
+        }
+        
+        &__filter.open{
+            left: 0;
+        }
+
+        &__phoneMenu {
+            position: absolute;
+            height: 4rem;
+            margin: 1rem 3rem;
+            background-color: $color-primary-light;
+            border: 1px solid $color-primary-dark;
+            // width: 100vw;
+            top: 0;
+            left: -110vw;
+            padding: .7rem 1rem;
+            display: flex;
+            align-items:center;
+            font-weight: 700;
+            color: #fff;
+            fill: #fff;
+
+            @include respond(phone){
+                left: 0;
+            }
         }
     }
 
     &__result {
-        @extend %container;
-        padding: 5rem 0;
+        margin: auto;
+        max-width: $content-max-width;
+        padding: 5rem 1rem;
         display: grid;
         grid-gap: 5rem;
-        grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(24rem, 1fr));
     }
 }

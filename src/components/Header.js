@@ -8,6 +8,7 @@ class Header extends Component {
         if (this.props.user) {
             return (
                 <Fragment>
+                    <span>{this.props.user.name}</span>
                     <a href="#" className="header__auth__item" onClick={() => this.props.signOut()}>Sign out</a>
                 </Fragment>
             )

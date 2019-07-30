@@ -1,14 +1,22 @@
-import React from 'react'
+import React from 'react';
+import { Link} from 'react-router-dom';
 
-export default function PropertyCard(imgSrc, title, region, city, suburb, rooms, price) {
+import { ReactComponent as BedIcon } from '../../images/SVG/bed.svg';
+import { ReactComponent as LocationIcon } from '../../images/SVG/location-pin.svg';
+import { ReactComponent as MoneyIcon } from '../../images/SVG/credit.svg';
+
+export default function PropertyCard(props) {
+    const {property} = props;
     return (
         <div className="propertyCard">
-            <img className="propertyCard__image" src={imgSrc} alt={title}/>
-            <h3>{title}</h3>
+            <Link to = "/property">
+            <img className="propertyCard__image" src={property.imageUrl} />
+            </Link>
+            <h3>{property.title}</h3>
             <div className="propertyCard__info">
-                <div className="propertyCard__location">{Suburb}, {City}</div>
-                <div className="propertyCard__rooms">{rooms}</div>
-                <div className="propertyCard__price">{price}</div>
+                <div className="propertyCard__info__location"><LocationIcon className="icon" /><span>{property.suburb}, {property.city}</span></div>
+                <div className="propertyCard__info__rooms"><BedIcon className="icon" /><span> {property.rooms}</span></div>
+                <div className="propertyCard__info__price"><MoneyIcon className="icon" /><span>{property.price}</span></div>
             </div>
         </div>
     )

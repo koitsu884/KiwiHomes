@@ -24,7 +24,6 @@ class Signin extends Component {
         let isValid = true;
         let errors = {};
 
-        console.log(this.state);
         if(!this.state.email){
             errors.email = "Email is required field";
             isValid = false;
@@ -54,7 +53,7 @@ class Signin extends Component {
         return (
             <div className="signIn">
                 <h1>Sign In</h1>
-                <form className="signIn__form" onSubmit={this.onSubmit}>
+                <form className="signIn__form form" onSubmit={this.onSubmit}>
                     <TextFieldGroup
                         placeholder="Email Address"
                         name="email"
@@ -71,7 +70,7 @@ class Signin extends Component {
                         onChange={this.onChange}
                         error={this.state.errors.password}
                     />
-                    <button type="submit" > Submit</button>
+                    <button className="btn" type="submit" > Submit</button>
                 </form>
             </div>
         )
