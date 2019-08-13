@@ -1,6 +1,6 @@
 import React from 'react';
 import '../css/style.css';
-import { Router, Route } from 'react-router-dom';
+import { HashRouter, Route } from 'react-router-dom';
 import history from '../history';
 import { Provider } from 'react-redux';
 
@@ -14,6 +14,7 @@ import Contact from './Contact';
 import PropertyDetails from './PropertyDetails';
 import Signin from './auth/Signin';
 import Signup from './auth/Signup';
+import Terms from './Terms';
 
 if (localStorage.jwtToken) {
     //setAuthToken(localStorage.jwtToken);
@@ -23,7 +24,7 @@ if (localStorage.jwtToken) {
 const App = () => {
     return (
         <Provider store={store}>
-            <Router history={history}>
+            <HashRouter history={history}>
             <Header />
             <GlobalNav />
               <Route path="/" exact component={Home} />
@@ -31,9 +32,10 @@ const App = () => {
               <Route path="/signup" exact component={Signup} />
               <Route path="/about" exact component={About} />
               <Route path="/contact" exact component={Contact} />
-              <Route path="/property" exact component={PropertyDetails} />
+              <Route path="/terms" exact component={Terms} />
+              <Route path="/property/:id" exact component={PropertyDetails} />
             <Footer />
-            </Router>
+            </HashRouter>
         </Provider>
     )
 }

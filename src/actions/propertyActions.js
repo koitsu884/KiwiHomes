@@ -1,6 +1,6 @@
 import history from '../history';
 
-import {SEARCH_PROPERTIES, SET_PROPERTIES} from './types';
+import {SEARCH_PROPERTIES, SET_PROPERTIES, SET_PROPERTY_DETAILS} from './types';
 
 const properties = [
     {
@@ -10,7 +10,8 @@ const properties = [
         region: "Canterbury",
         city: "Christchurch",
         suburb: "Hornby",
-        rooms: 3,
+        type: 'house',
+        rooms: 5,
         price: 500000
     },
     {
@@ -20,6 +21,7 @@ const properties = [
         region: "Auckland",
         city: "Auckland City",
         suburb: "Avondale",
+        type: 'apartment',
         rooms: 2,
         price: 1300000
     },
@@ -30,6 +32,7 @@ const properties = [
         region: "Wellington",
         city: "Lower Hutt City",
         suburb: "Belmont",
+        type: 'house',
         rooms: 4,
         price: 900000
     },
@@ -40,8 +43,9 @@ const properties = [
         region: "Wellington",
         city: "Upper Hutt City",
         suburb: "Belmont",
-        rooms: 3,
-        price: 1000000
+        type: 'apartment',
+        rooms: 1,
+        price: 500000
     },
     {
         _id: 5,
@@ -50,8 +54,9 @@ const properties = [
         region: "Canterbury",
         city: "Christchurch",
         suburb: "Hornby",
+        type: 'unit',
         rooms: 3,
-        price: 1000000
+        price: 350000
     },
     {
         _id: 6,
@@ -60,8 +65,9 @@ const properties = [
         region: "Wellington",
         city: "Lower Hutt City",
         suburb: "Belmont",
-        rooms: 3,
-        price: 1000000
+        type: 'house',
+        rooms: 2,
+        price: 290000
     },
     {
         _id: 7,
@@ -70,8 +76,9 @@ const properties = [
         region: "Wellington",
         city: "Lower Hutt City",
         suburb: "Belmont",
+        type: 'unit',
         rooms: 3,
-        price: 1000000
+        price: 400000
     },
     {
         _id: 8,
@@ -80,8 +87,9 @@ const properties = [
         region: "Auckland",
         city: "Auckland",
         suburb: "Mt Albert",
+        type: 'house',
         rooms: 3,
-        price: 1000000
+        price: 600000
     }
 ]
 
@@ -91,6 +99,12 @@ export const searchProperties = (filters) => dispatch => {
             if(filters.region !== "" && filters.region !== property.region) return false;
             if(filters.city !== "" && filters.city !== property.city) return false;
             if(filters.suburb !== "" && filters.suburb !== property.suburb) return false;
+            if(filters.type !== "" && filters.type !== property.type) return false;
+            if(filters.status !== "" && filters.status !== property.status) return false;
+            if(filters.priceFrom !== "" && property.price < filters.priceFrom) return false;
+            if(filters.priceTo !== "" && filters.priceTo < property.price) return false;
+            if(filters.roomsFrom !== "" && property.rooms < filters.roomsFrom) return false;
+            if(filters.roomsTo !== "" && filters.roomsTo < property.rooms) return false;
 
             return true;
         }   
@@ -100,4 +114,15 @@ export const searchProperties = (filters) => dispatch => {
         type: SET_PROPERTIES,
         payload: results
     });
+}
+
+export const getProperty = id => dispatch => {
+    let result = properties.filter(property => property._id == id);
+
+    if(result){
+        dispatch({
+            type: SET_PROPERTY_DETAILS,
+            payload: result[0]
+        })
+    }
 }

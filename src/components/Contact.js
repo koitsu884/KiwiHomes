@@ -1,11 +1,15 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 
 export default function Contact() {
     return (
-        <main className="contact">
+        <Fragment>
+
+        <div className="pageHeader pageHeader--contact">
             <h1>Contact Us</h1>
+        </div>
+        <main className="contact">
             <div className="contact__map">
-                Map area
+                Map area (Google map API will be used)
             </div>
             <div className="contact__info">
                 <div>
@@ -22,5 +26,6 @@ export default function Contact() {
                 </div>
             </div>
         </main>
+        </Fragment>
     )
 }

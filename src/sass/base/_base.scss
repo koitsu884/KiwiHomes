@@ -90,7 +90,7 @@ fieldset {
 .select {
     overflow: hidden;
 	width: 100%;
-    text-align: center;
+    // text-align: left;
     position: relative;
 	border-radius: 4px;
     background: #fff;
@@ -115,7 +115,7 @@ fieldset {
         top: 0;
         right: 0;
         bottom: 0;
-        width: 3.2rem;
+        width: 3rem;
         background-color: $color-primary-dark;
         pointer-events: none;
         content: '';
@@ -123,16 +123,20 @@ fieldset {
     
     select {
         width: 100%;
-        padding: 1rem 4rem 1rem 2rem;
+        padding: 1rem;
+        margin-right: 3.5rem;
         cursor: pointer;
-        text-indent: 0.01px;
-        text-overflow: ellipsis;
+        // text-indent: 0.01px;
+        // text-overflow: ellipsis;
         border: none;
         outline: none;
         background: transparent;
         background-image: none;
         box-shadow: none;
         appearance: none;
+        option {
+            margin: 0;
+        }
     }
 }
 

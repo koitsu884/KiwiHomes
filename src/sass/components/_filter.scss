@@ -1,0 +1,28 @@
+.filter {
+    margin: auto;
+    max-width: $content-max-width;
+    @include clearfix;
+
+    &__item {
+        float: left;
+        margin: 1rem 2rem;
+
+        &__price {
+            display:flex;
+            align-items: center;
+
+            div {
+                margin-right: 1rem;
+            }
+        }
+
+        &__rooms {
+            display:flex;
+            align-items: center;
+
+            div {
+                margin-right: 1rem;
+            }
+        }
+    }
+}

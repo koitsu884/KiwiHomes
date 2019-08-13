@@ -12,6 +12,7 @@
         &__filter{
             transition: .2s;
             background-color: $color-secondary;
+            z-index: 100;
 
             @include respond(phone){
                 position: absolute;
@@ -51,9 +52,24 @@
     &__result {
         margin: auto;
         max-width: $content-max-width;
+        min-height: 30vh;
         padding: 5rem 1rem;
-        display: grid;
-        grid-gap: 5rem;
-        grid-template-columns: repeat(auto-fill, minmax(24rem, 1fr));
+
+        div{
+            float: left;
+            width: 25rem;
+        }
+        @include clearfix;
+
+        @supports( display:grid){
+            display: grid;
+            grid-gap: 5rem;
+            grid-template-columns: repeat(auto-fill, minmax(24rem, 1fr));
+            justify-items: center;
+
+            div{
+                float: none;
+            }
+        }
     }
 }

@@ -1,0 +1,31 @@
+.pageHeader{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-position: center; 
+    height: 30rem;
+    background-size: cover;
+    margin-bottom: 2rem;
+    
+    h1 {
+        font-size: 5rem;
+        color: white;
+    }
+    
+    &--about {
+        background-image: url('../images/aboutus.jpg');
+    }
+    
+    &--contact {
+        background-image: url('../images/contactus.jpg');
+    }
+
+    @include respond(phone){
+        background-image: none;
+        height: 10rem;
+        h1 {
+            font-size: 3rem;
+            color: $color-primary;
+        }
+    }
+}

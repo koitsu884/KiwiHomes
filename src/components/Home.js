@@ -10,7 +10,8 @@ class Home extends Component {
     constructor(props){
         super(props);
         this.state = {
-            filterOpen: false
+            filterOpen: false,
+            useMap: false,
         };
     }
 
@@ -24,7 +25,25 @@ class Home extends Component {
         });
     }
 
+    renderMapSearchResult(){
+        return (
+            <div className="home__result">Map search is not available yet!!</div> 
+        )
+    }
+
+    renderSearchResult(){
+        return (
+            <div className="home__result">
+                {this.renderPropertyList()}
+            </div>
+        )
+    }
+
     renderPropertyList(){
+        if(this.props.properties.length === 0)
+        return (
+            <div>Sorry, the filter has no results...</div>
+        )
         return this.props.properties.map(property => {
             return (
                 <PropertyCard property={property} key={property._id} />
@@ -36,6 +55,12 @@ class Home extends Component {
         this.props.searchProperties(filter);
     }
 
+    toggleUseMap = useMap => {
+        this.setState({
+            useMap: useMap
+        })
+    }
+
     render() {
         let searchFilterClassName = "home__search__filter" + (this.state.filterOpen ? " open" : ""); 
         return (
@@ -45,12 +70,10 @@ class Home extends Component {
                         <SearchIcon /> <p>{this.state.filterOpen ? " Close " : " Open "} filter</p>
                     </div>
                     <div className={searchFilterClassName}>
-                       <Filter onFilterChange={this.onFilterChange} />
+                       <Filter onFilterChange={this.onFilterChange} toggleUseMap={this.toggleUseMap} />
                     </div>
                 </div>
-                <div className="home__result">
-                    {this.renderPropertyList()}
-                </div>
+                { this.state.useMap ? this.renderMapSearchResult() : this.renderSearchResult() }
             </main>
         )
     }

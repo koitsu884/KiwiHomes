@@ -1,9 +1,9 @@
-import { GET_PROPERTY, UPDATE_PROPERTY, DELETE_PROPERTY, ADD_PROPERTY, SEARCH_PROPERTIES, SET_PROPERTIES} from '../actions/types';
+import { SET_PROPERTY_DETAILS, UPDATE_PROPERTY, DELETE_PROPERTY, ADD_PROPERTY, SEARCH_PROPERTIES, SET_PROPERTIES} from '../actions/types';
 
 const INITIAL_STATE = {
     properties: [],
     filters: {},
-    selectedProperty: null
+    propertyDetails: null
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -12,6 +12,11 @@ export default (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 properties: action.payload
+            }
+        case SET_PROPERTY_DETAILS: 
+            return {
+                ...state,
+                propertyDetails: action.payload
             }
         default:
             return state;

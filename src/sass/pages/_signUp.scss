@@ -1,0 +1,19 @@
+.signUp{
+    margin: auto;
+    max-width: $content-max-width;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__form{
+        display: flex;
+        flex-direction: column;
+        width: 70rem;
+        input {
+            width: 100%;
+        }
+        .form-group {
+            margin-bottom: 2rem;
+        }
+    }
+}

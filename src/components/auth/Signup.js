@@ -7,15 +7,17 @@ class Signup extends Component {
     constructor() {
         super();
         this.state = {
-            name: "",
-            phone: "",
-            email: "",
+            userName: "",
             password: "",
             confirm: "",
-            street: "",
-            city: "",
-            suburb: "",
-            zip: "",
+            lastName: "",
+            firstName: "",
+            phone: "",
+            email: "",
+            // street: "",
+            // city: "",
+            // suburb: "",
+            // zip: "",
             errors: {}
         };
     }
@@ -29,8 +31,16 @@ class Signup extends Component {
         // let isValid = true;
         let errors = {};
 
-        if (!this.state.name) {
-            errors.name = "Name is required";
+        if (!this.state.userName) {
+            errors.userName = "Name is required";
+        }
+
+        if (!this.state.lastName) {
+            errors.lastName = "Last name is required";
+        }
+
+        if (!this.state.firstName) {
+            errors.firstName = "First name is required";
         }
 
         if (!this.state.phone) {
@@ -61,9 +71,13 @@ class Signup extends Component {
 
         if (Object.getOwnPropertyNames(errors).length === 0) {
             const formData = {
-                name: this.state.name,
+                username: this.state.userName,
+                first_name: this.state.firstName,
+                last_name: this.state.lastName,
                 email: this.state.email,
-                password: this.state.password
+                password: this.state.password,
+                phone: this.state.phone,
+                userType: 'Customer'
             }
 
             this.props.signUp(formData);
@@ -79,32 +93,14 @@ class Signup extends Component {
             <div className="signUp">
                 <h1>Sign Up</h1>
                 <form className="signUp__form form" onSubmit={this.onSubmit}>
-                    <label>Name *</label>
+                    <label>User Name *</label>
                     <TextFieldGroup
                         placeholder="Name"
-                        name="name"
+                        name="userName"
                         type="text"
-                        value={this.state.name}
+                        value={this.state.userName}
                         onChange={this.onChange}
-                        error={this.state.errors.name}
-                    />
-                    <label>Phone number *</label>
-                    <TextFieldGroup
-                        placeholder="Phone number"
-                        name="phone"
-                        type="tel"
-                        value={this.state.phone}
-                        onChange={this.onChange}
-                        error={this.state.errors.phone}
-                    />
-                    <label>E-mail *</label>
-                    <TextFieldGroup
-                        placeholder="Email Address"
-                        name="email"
-                        type="email"
-                        value={this.state.email}
-                        onChange={this.onChange}
-                        error={this.state.errors.email}
+                        error={this.state.errors.userName}
                     />
                     <label>Password *</label>
                     <TextFieldGroup
@@ -124,41 +120,41 @@ class Signup extends Component {
                         onChange={this.onChange}
                         error={this.state.errors.confirm}
                     />
-                    <label>Street Address</label>
+                    <label>First name *</label>
                     <TextFieldGroup
-                        placeholder="Street Address"
-                        name="street"
-                        type="text"
-                        value={this.state.street}
+                        placeholder="First Name"
+                        name="firstName"
+                        type="tel"
+                        value={this.state.firstName}
                         onChange={this.onChange}
-                        error={this.state.errors.street}
+                        error={this.state.errors.firstName}
                     />
-                    <label>City</label>
+                    <label>Lastirst name *</label>
                     <TextFieldGroup
-                        placeholder="City"
-                        name="city"
-                        type="text"
-                        value={this.state.city}
+                        placeholder="Last Name"
+                        name="lastName"
+                        type="tel"
+                        value={this.state.lastName}
                         onChange={this.onChange}
-                        error={this.state.errors.city}
+                        error={this.state.errors.lastName}
                     />
-                    <label>Suburb</label>
+                    <label>Phone number *</label>
                     <TextFieldGroup
-                        placeholder="Suburb"
-                        name="suburb"
-                        type="text"
-                        value={this.state.suburb}
+                        placeholder="Phone number"
+                        name="phone"
+                        type="tel"
+                        value={this.state.phone}
                         onChange={this.onChange}
-                        error={this.state.errors.suburb}
+                        error={this.state.errors.phone}
                     />
-                    <label>Zip Code</label>
+                    <label>E-mail *</label>
                     <TextFieldGroup
-                        placeholder="Zip Code"
-                        name="zip"
-                        type="text"
-                        value={this.state.zip}
+                        placeholder="Email Address"
+                        name="email"
+                        type="email"
+                        value={this.state.email}
                         onChange={this.onChange}
-                        error={this.state.errors.zip}
+                        error={this.state.errors.email}
                     />
                     <button className="btn" type="submit" > Submit</button>
                 </form>

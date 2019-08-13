@@ -9,7 +9,7 @@ export default function PropertyCard(props) {
     const {property} = props;
     return (
         <div className="propertyCard">
-            <Link to = "/property">
+            <Link to = {`/property/${property._id}`}>
             <img className="propertyCard__image" src={property.imageUrl} />
             </Link>
             <h3>{property.title}</h3>
