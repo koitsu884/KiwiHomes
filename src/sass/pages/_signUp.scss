@@ -8,12 +8,15 @@
     &__form{
         display: flex;
         flex-direction: column;
-        width: 70rem;
+        width: 70%;
         input {
             width: 100%;
         }
         .form-group {
             margin-bottom: 2rem;
+        }
+        @include respond(phone){
+            width: 90%;
         }
     }
 }
