@@ -129,7 +129,7 @@ class Signup extends Component {
                         onChange={this.onChange}
                         error={this.state.errors.firstName}
                     />
-                    <label>Lastirst name *</label>
+                    <label>Last name *</label>
                     <TextFieldGroup
                         placeholder="Last Name"
                         name="lastName"
