@@ -9,6 +9,7 @@ class Header extends Component {
             return (
                 <Fragment>
                     <span>{this.props.user.name}</span>
+                    {this.props.user.user_type==='Admin' ? <Link className="header__auth__item" to="/admin/property">Management</Link> : null}
                     <a href="#" className="header__auth__item" onClick={() => this.props.signOut()}>Sign out</a>
                 </Fragment>
             )

@@ -1,17 +1,13 @@
 import { SET_ERRORS, CLEAR_ERRORS} from '../actions/types';
 
-const initialState = null
+const initialState = {}
 
 export default function(state = initialState, action) {
     switch(action.type){
         case SET_ERRORS:
-            let error = action.payload;
-            let errorMessage = error.response ? error.response.data : error.message;
-            if(!errorMessage) errorMessage = "Something wrong happened...";
-            return errorMessage;
+            return action.payload;
         case CLEAR_ERRORS:
-            
-            return null;
+            return {};
         default:
             return state;
     }

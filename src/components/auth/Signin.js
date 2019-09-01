@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { signIn } from '../../actions/userActions';
 import TextFieldGroup from '../common/TextFieldGroup';
+import { toast } from 'react-toastify';
 
 class Signin extends Component {
     constructor() {
@@ -19,7 +20,6 @@ class Signin extends Component {
 
     onSubmit = e => {
         e.preventDefault();
-
         /* validations */
         let isValid = true;
         let errors = {};
@@ -36,12 +36,7 @@ class Signin extends Component {
 
         if(isValid)
         {
-            const formData = {
-                email: this.state.email,
-                password: this.state.password
-            }
-    
-            this.props.signIn(formData);
+            this.props.signIn(this.state.email, this.state.password);
         }
         else{
             this.setState({errors: errors})

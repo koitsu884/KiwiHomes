@@ -1,8 +1,13 @@
 import { SIGN_IN, SIGN_OUT} from '../actions/types';
 
 const INITIAL_STATE = {
-    token: null,
-    user: null
+    // token: null,
+    // user: null
+    token: 'abcde',//For test
+    user: {
+        displayName: 'test',
+        user_type: 'Admin'
+    }
 };
 
 export default (state = INITIAL_STATE, action) => {
