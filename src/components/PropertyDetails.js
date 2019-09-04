@@ -20,7 +20,7 @@ class PropertyDetails extends Component {
         return details 
             ? (
                 <div className="propertyDetails__garelly">
-                    <img src={details.imageUrl} />
+                    <img src={details.image} />
                 </div>
             )  
             :
@@ -37,7 +37,7 @@ class PropertyDetails extends Component {
             return (
                 <div>
                     <h5>Address:</h5>
-                    <p>{details.suburb}. {details.city}</p>
+                    <p>{details.suburb.name}. {details.city.name}</p>
                     <h5>Price:</h5>
                     <p>{details.price}</p>
                     <h5>Number of bedrooms:</h5>

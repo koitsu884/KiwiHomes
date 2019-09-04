@@ -77,7 +77,7 @@ fieldset {
 
 .select {
   overflow: hidden;
-  width: 100%;
+  /* width: 100%; */
   position: relative;
   border-radius: 4px;
   background: #fff; }
@@ -104,7 +104,7 @@ fieldset {
     pointer-events: none;
     content: ''; }
   .select select {
-    width: 100%;
+    /* width: 100%; */
     padding: 1rem;
     margin-right: 3.5rem;
     cursor: pointer;

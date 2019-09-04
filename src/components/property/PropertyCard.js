@@ -9,12 +9,12 @@ export default function PropertyCard(props) {
     const {property} = props;
     return (
         <div className="propertyCard">
-            <Link to = {`/property/${property._id}`}>
-            <img className="propertyCard__image" src={property.imageUrl} />
+            <Link to = {`/property/${property.id}`}>
+            <img className="propertyCard__image" src={property.image} alt='Main image' />
             </Link>
             <h3>{property.title}</h3>
             <div className="propertyCard__info">
-                <div className="propertyCard__info__location"><LocationIcon className="icon" /><span>{property.suburb}, {property.city}</span></div>
+                <div className="propertyCard__info__location"><LocationIcon className="icon" /><span>{property.suburb.name}, {property.city.name}</span></div>
                 <div className="propertyCard__info__rooms"><BedIcon className="icon" /><span> {property.rooms}</span></div>
                 <div className="propertyCard__info__price"><MoneyIcon className="icon" /><span>{property.price}</span></div>
             </div>

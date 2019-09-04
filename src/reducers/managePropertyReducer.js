@@ -1,4 +1,4 @@
-import { MANAGE_SET_PROPERTIES} from '../actions/types';
+import { MANAGE_SET_PROPERTIES, MANAGE_DELETE_PROPERTY} from '../actions/types';
 
 const INITIAL_STATE = {
     properties: [],
@@ -11,6 +11,11 @@ export default (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 properties: action.payload
+            }
+        case MANAGE_DELETE_PROPERTY:
+            return {
+                ...state,
+                properties: state.properties.filter(property => property.id !== action.payload)
             }
         default:
             return state;

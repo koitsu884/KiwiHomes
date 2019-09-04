@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { signIn } from '../../actions/userActions';
 import TextFieldGroup from '../common/TextFieldGroup';
-import { toast } from 'react-toastify';
 
 class Signin extends Component {
     constructor() {

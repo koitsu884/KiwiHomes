@@ -46,12 +46,13 @@ class Home extends Component {
         )
         return this.props.properties.map(property => {
             return (
-                <PropertyCard property={property} key={property._id} />
+                <PropertyCard property={property} key={property.id} />
             )
         })
     }
 
     onFilterChange = filter => {
+        console.log(filter);
         this.props.searchProperties(filter);
     }
 

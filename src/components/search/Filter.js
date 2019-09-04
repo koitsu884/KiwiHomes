@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
+import RegionDropdown from '../common/RegionDropdown'
+import CityDropdown from '../common/CityDropdown'
+import SuburbDropdown from '../common/SuburbDropdown'
 
 export default class Filter extends Component {
     constructor(props) {
         super(props);
         this.state = {
             useMap: false,
-            region: '',
-            city: '',
-            suburb: '',
-            type: '',
+            region: 0,
+            city: 0,
+            suburb: 0,
+            propertyType: '',
             status: '',
             priceFrom: '',
             priceTo: '',
@@ -17,9 +20,19 @@ export default class Filter extends Component {
         };
     }
 
+    handleRegionChange = e => {
+        this.setState({
+            region: e.target.value,
+            city: 0,
+            suburb: 0
+        }, () => {
+            this.props.onFilterChange(this.state);
+        });
+    }
+
 
     handleChange = event => {
-        this.setState({[event.target.name]: event.target.value}, () => {
+        this.setState({ [event.target.name]: event.target.value }, () => {
             this.props.onFilterChange(this.state);
         });
     }
@@ -27,7 +40,7 @@ export default class Filter extends Component {
     toggleUserMap = event => {
         this.setState({
             useMap: event.target.checked
-        }, ()=>{
+        }, () => {
             this.props.toggleUseMap(this.state.useMap);
         })
     }
@@ -42,47 +55,32 @@ export default class Filter extends Component {
                         <label htmlFor="toggleMap" />
                     </div>
                 </div>
-                <div className="filter__item">
+                <div className="filter__item filter__item--location">
                     <h5>Region</h5>
                     <div className="select">
-                        <select name="region" onChange={this.handleChange} value={this.state.region}>
-                            <option value=""></option>
-                            <option value="Auckland">Auckland</option>
-                            <option value="Canterbury">Canterbury</option>
-                            <option value="Wellington">Wellington</option>
-                        </select>
+                        <RegionDropdown onChange={this.handleRegionChange} name='region' value={this.state.region} />
                     </div>
                 </div>
-                <div className="filter__item">
+                <div className="filter__item filter__item--location">
                     <h5>City</h5>
                     <div className="select">
-                        <select name="city" onChange={this.handleChange} value={this.state.city}>
-                            <option value=""></option>
-                            <option value="Auckland">Auckland</option>
-                            <option value="Christchurch">Christchurch</option>
-                            <option value="Wellington">Wellington</option>
-                        </select>
+                        <CityDropdown onChange={this.handleChange} name='city' value={this.state.city} region={this.state.region} />
                     </div>
                 </div>
-                <div className="filter__item">
+                <div className="filter__item filter__item--location">
                     <h5>Suburb</h5>
                     <div className="select">
-                        <select name="suburb" onChange={this.handleChange} value={this.state.suburb}>
-                            <option value=""></option>
-                            <option value="Hornby">Hornby</option>
-                            <option value="Avondale">Avondale</option>
-                            <option value="Mt Albert">Mt Albert</option>
-                        </select>
+                        <SuburbDropdown onChange={this.handleChange} name='suburb' value={this.state.suburb} city={this.state.city} />
                     </div>
                 </div>
                 <div className="filter__item">
                     <h5>Property Type</h5>
                     <div className="select">
-                        <select name="type" onChange={this.handleChange} value={this.state.type}>
+                        <select name="propertyType" onChange={this.handleChange} value={this.state.propertyType}>
                             <option value=""></option>
-                            <option value="home">Home</option>
-                            <option value="apartment">Apratment</option>
-                            <option value="unit">Unit</option>
+                            <option value="House">House</option>
+                            <option value="Appartment">Appartment</option>
+                            <option value="Unit">Unit</option>
                         </select>
                     </div>
                 </div>

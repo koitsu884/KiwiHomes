@@ -16,3 +16,14 @@
 
 .u-margin-top-big { margin-top: 8rem !important;}
 .u-margin-top-huge { margin-top: 10rem !important;}
+
+.flex-r {
+    display: flex;
+}
+
+.flex-r-pc {
+    display: flex;
+    @include respond(phone){
+        flex-direction: column;
+    }
+}

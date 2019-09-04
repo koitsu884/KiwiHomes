@@ -7,7 +7,7 @@ const RegionDropdown = ({name, className, value, regions, onChange}) => {
             <option value={0}></option>
             {
                 regions.map(region => {
-                    return <option key={region.id} value={region.id}>{region.region}</option>
+                    return <option key={region.id} value={region.id}>{region.name}</option>
                 })
             }
         </select>

@@ -25,7 +25,7 @@ class SuburbDropdown extends Component {
                 <option value={0}></option>
                 {
                     this.state.suburbs.map(suburb => {
-                        return <option key={suburb.id} value={suburb.id}>{suburb.suburb}</option>
+                        return <option key={suburb.id} value={suburb.id}>{suburb.name}</option>
                     })
                 }
             </select>

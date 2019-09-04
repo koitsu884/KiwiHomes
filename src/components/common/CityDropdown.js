@@ -25,7 +25,7 @@ class CityDropdown extends Component {
                 <option value={0}></option>
                 {
                     this.state.cities.map(city => {
-                        return <option key={city.id} value={city.id}>{city.city}</option>
+                        return <option key={city.id} value={city.id}>{city.name}</option>
                     })
                 }
             </select>

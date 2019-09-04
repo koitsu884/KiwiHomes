@@ -7,6 +7,10 @@
         float: left;
         margin: 1rem 2rem;
 
+        &--location {
+            width: 14rem;
+        }
+
         &__price {
             display:flex;
             align-items: center;

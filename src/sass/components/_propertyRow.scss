@@ -1,0 +1,33 @@
+.propertyRow {
+    // min-width: 23rem;
+    border: 1px solid $color-primary-light;
+    margin: 1rem;
+
+    h3 {
+        color: white;
+        background-color: $color-primary-light;
+    }
+
+    &__info {
+        width: 100%;
+        display: flex;
+
+        .icon {
+            margin: 0 1rem;
+        }
+
+        &__image {
+            width: 12rem;
+            height: 12rem;
+            object-fit: cover;
+            display: block;
+        }
+
+        &__location,
+        &__rooms,
+        &__price {
+            display:flex;
+            align-items: center;
+        }
+    }
+}
