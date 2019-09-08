@@ -21,8 +21,6 @@ class Header extends Component {
                 <Link className="header__auth__item" to = "/signup">Register</Link>
             </Fragment>
         )
-
-
     }
 
     render() {
