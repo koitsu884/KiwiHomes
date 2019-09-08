@@ -13,7 +13,6 @@ class Header extends Component {
                     <a href="#" className="header__auth__item" onClick={() => this.props.signOut()}>Sign out</a>
                 </Fragment>
             )
-
         }
 
         return (
