@@ -2,7 +2,7 @@ import axios from 'axios';
 import history from '../history';
 import { SEARCH_PROPERTIES, SET_PROPERTIES, SET_PROPERTY_DETAILS } from './types';
 
-const apiBaseURL = process.env.REACT_APP_API_UR;
+const apiBaseURL = process.env.REACT_APP_API_URL;
 
 
 // const properties = [

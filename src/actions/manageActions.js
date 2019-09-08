@@ -3,7 +3,7 @@ import history from '../history';
 
 import {MANAGE_SET_PROPERTIES, MANAGE_DELETE_PROPERTY} from './types';
 
-const apiBaseURL = process.env.REACT_APP_API_UR;
+const apiBaseURL = process.env.REACT_APP_API_URL;
 
 export const manageSetProperties = (properties) => {
     return {

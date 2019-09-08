@@ -9,7 +9,7 @@ import CityDropdown from '../common/CityDropdown';
 import SuburbDropdown from '../common/SuburbDropdown';
 import TextFieldGroup from '../common/TextFieldGroup';
 
-const apiBaseURL = process.env.REACT_APP_API_UR;
+const apiBaseURL = process.env.REACT_APP_API_URL;
 
 class PropertyEditForm extends Component {
     constructor(props) {

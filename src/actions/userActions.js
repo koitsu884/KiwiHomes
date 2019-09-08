@@ -4,7 +4,7 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import setAuthToken from '../utils/setAuthToken';
 
-const apiBaseURL = process.env.REACT_APP_API_UR;
+const apiBaseURL = process.env.REACT_APP_API_URL;
 
 export const signIn = (email, password) => dispatch => {
     axios.post('user/token/', {email: email, password:password}, {

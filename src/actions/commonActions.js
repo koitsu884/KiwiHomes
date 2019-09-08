@@ -7,7 +7,7 @@ import {
     SET_REGIONS
 } from './types';
 
-const baseURL = process.env.REACT_APP_API_UR;
+const baseURL = process.env.REACT_APP_API_URL;
 
 const setCities = cities => {
     return {
