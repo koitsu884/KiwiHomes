@@ -77,7 +77,7 @@ fieldset {
 
 .select {
   overflow: hidden;
-  /* width: 100%; */
+  width: 100%;
   position: relative;
   border-radius: 4px;
   background: #fff; }
@@ -104,7 +104,7 @@ fieldset {
     pointer-events: none;
     content: ''; }
   .select select {
-    /* width: 100%; */
+    width: 100%;
     padding: 1rem;
     margin-right: 3.5rem;
     cursor: pointer;
@@ -162,6 +162,15 @@ a {
 
 .u-margin-top-huge {
   margin-top: 10rem !important; }
+
+.flex-r {
+  display: flex; }
+
+.flex-r-pc {
+  display: flex; }
+  @media only screen and (max-width: 37.5em) {
+    .flex-r-pc {
+      flex-direction: column; } }
 
 .header {
   width: 100%;
@@ -437,6 +446,26 @@ a {
       display: block;
       clear: both; }
 
+.propertyRow {
+  border: 1px solid #5B6340;
+  margin: 1rem; }
+  .propertyRow h3 {
+    color: white;
+    background-color: #5B6340; }
+  .propertyRow__info {
+    width: 100%;
+    display: flex; }
+    .propertyRow__info .icon {
+      margin: 0 1rem; }
+    .propertyRow__info__image {
+      width: 12rem;
+      height: 12rem;
+      object-fit: cover;
+      display: block; }
+    .propertyRow__info__location, .propertyRow__info__rooms, .propertyRow__info__price {
+      display: flex;
+      align-items: center; }
+
 .filter {
   margin: auto;
   max-width: 128rem; }
@@ -447,6 +476,8 @@ a {
   .filter__item {
     float: left;
     margin: 1rem 2rem; }
+    .filter__item--location {
+      width: 14rem; }
     .filter__item__price {
       display: flex;
       align-items: center; }
@@ -461,7 +492,8 @@ a {
 .btn, .btn:link, .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
-  padding: 1.5rem 4rem;
+  padding: 1.2rem 2rem;
+  margin: 1rem;
   display: inline-block;
   border-radius: 1.5rem;
   transition: all .2s;
@@ -487,14 +519,14 @@ a {
 .btn--white {
   background-color: #fff;
   color: #777; }
-  .btn--white::after {
-    background-color: #fff; }
 
 .btn--green {
   background-color: #363002;
   color: #fff; }
-  .btn--green::after {
-    background-color: #363002; }
+
+.btn--red {
+  background-color: orangered;
+  color: #fff; }
 
 .btn::after {
   content: "";
@@ -530,6 +562,7 @@ a {
 .form {
   padding: 2rem 4rem; }
   .form input[type='text'],
+  .form input[type='number'],
   .form input[type='tel'],
   .form input[type='email'],
   .form input[type='password'] {
@@ -542,6 +575,7 @@ a {
     transition: all .3s;
     display: block; }
     .form input[type='text']:focus,
+    .form input[type='number']:focus,
     .form input[type='tel']:focus,
     .form input[type='email']:focus,
     .form input[type='password']:focus {
@@ -549,11 +583,13 @@ a {
       box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
       border-bottom: 2px solid #FEE89E; }
     .form input[type='text']:focus:invalid,
+    .form input[type='number']:focus:invalid,
     .form input[type='tel']:focus:invalid,
     .form input[type='email']:focus:invalid,
     .form input[type='password']:focus:invalid {
       border-bottom: 2px solid #F6F2E6; }
   .form input[type='text']:disabled,
+  .form input[type='number']:disabled,
   .form input[type='tel']:disabled,
   .form input[type='email']:disabled,
   .form input[type='password']:disabled {
@@ -564,6 +600,28 @@ a {
   .form label {
     font-weight: 700;
     color: #363002; }
+
+.fileContainer {
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  background-color: #FEE89E;
+  border: solid 1px #CBA716;
+  border-radius: 5px;
+  padding: .5rem 1rem; }
+
+.fileContainer [type=file] {
+  cursor: inherit;
+  display: block;
+  font-size: 999px;
+  filter: alpha(opacity=0);
+  min-height: 100%;
+  min-width: 100%;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  text-align: right;
+  top: 0; }
 
 .pageHeader {
   display: flex;
@@ -587,3 +645,46 @@ a {
       .pageHeader h1 {
         font-size: 3rem;
         color: #363002; } }
+
+.propertyEditForm {
+  max-width: 800px;
+  margin: 1rem auto; }
+  .propertyEditForm__section {
+    margin-bottom: 2rem;
+    padding: 1rem; }
+  .propertyEditForm__title input {
+    width: 90%; }
+  .propertyEditForm__image__preview {
+    max-width: 80%; }
+    .propertyEditForm__image__preview img {
+      width: 100%;
+      border: solid 1px #FEE89E;
+      border-radius: 5px; }
+  .propertyEditForm__location {
+    display: flex; }
+    @media only screen and (max-width: 37.5em) {
+      .propertyEditForm__location {
+        flex-direction: column; } }
+    .propertyEditForm__location--region, .propertyEditForm__location--city, .propertyEditForm__location--suburb {
+      width: 20rem;
+      margin-right: 1.5rem; }
+      @media only screen and (max-width: 37.5em) {
+        .propertyEditForm__location--region, .propertyEditForm__location--city, .propertyEditForm__location--suburb {
+          width: 80%; } }
+  .propertyEditForm__address input {
+    width: 90%; }
+  .propertyEditForm__etc {
+    display: flex; }
+    .propertyEditForm__etc--rooms, .propertyEditForm__etc--type, .propertyEditForm__etc--price {
+      width: 20rem;
+      margin-right: 1.5rem; }
+      @media only screen and (max-width: 37.5em) {
+        .propertyEditForm__etc--rooms, .propertyEditForm__etc--type, .propertyEditForm__etc--price {
+          width: 80%; } }
+    @media only screen and (max-width: 37.5em) {
+      .propertyEditForm__etc {
+        flex-direction: column; } }
+
+.createProperty h2,
+.editProperty h2 {
+  text-align: center; }
