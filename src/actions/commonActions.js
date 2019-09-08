@@ -7,7 +7,7 @@ import {
     SET_REGIONS
 } from './types';
 
-const baseURL = 'http://127.0.0.1:8000/api/';
+const baseURL = process.env.REACT_APP_API_UR;
 
 const setCities = cities => {
     return {

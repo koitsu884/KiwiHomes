@@ -2,7 +2,7 @@ import axios from 'axios';
 import history from '../history';
 import { SEARCH_PROPERTIES, SET_PROPERTIES, SET_PROPERTY_DETAILS } from './types';
 
-const apiBaseURL = 'http://127.0.0.1:8000/api/';
+const apiBaseURL = process.env.REACT_APP_API_UR;
 
 
 // const properties = [
