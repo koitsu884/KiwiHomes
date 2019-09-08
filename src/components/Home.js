@@ -52,7 +52,6 @@ class Home extends Component {
     }
 
     onFilterChange = filter => {
-        console.log(filter);
         this.props.searchProperties(filter);
     }
 
