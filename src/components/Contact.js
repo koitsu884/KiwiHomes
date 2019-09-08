@@ -3,7 +3,6 @@ import React, {Fragment} from 'react'
 export default function Contact() {
     return (
         <Fragment>
-
         <div className="pageHeader pageHeader--contact">
             <h1>Contact Us</h1>
         </div>
