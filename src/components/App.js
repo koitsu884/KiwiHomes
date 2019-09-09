@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../css/style.css';
-import { HashRouter, Route } from 'react-router-dom';
+import { Router, Route } from 'react-router-dom';
 import history from '../history';
 
 import { ToastContainer } from 'react-toastify';
@@ -37,7 +37,7 @@ class App extends Component {
 
     render() {
         return (
-            <HashRouter history={history}>
+            <Router history={history}>
                 <Header />
                 <GlobalNav />
                 <Route path="/" exact component={Home} />
@@ -61,7 +61,7 @@ class App extends Component {
                     pauseOnVisibilityChange
                     pauseOnHover
                 />
-            </HashRouter>
+            </Router>
         )
     }
 }

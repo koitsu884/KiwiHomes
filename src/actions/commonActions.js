@@ -1,4 +1,5 @@
 import axios from 'axios';
+import keys from '../config/keys';
 
 
 import {
@@ -7,7 +8,7 @@ import {
     SET_REGIONS
 } from './types';
 
-const baseURL = process.env.REACT_APP_API_URL;
+const baseURL = keys.apiURL;
 
 const setCities = cities => {
     return {

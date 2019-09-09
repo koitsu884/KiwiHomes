@@ -3,8 +3,9 @@ import history from '../history';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import setAuthToken from '../utils/setAuthToken';
+import keys from '../config/keys';
 
-const apiBaseURL = process.env.REACT_APP_API_URL;
+const apiBaseURL = keys.apiURL;
 
 export const signIn = (email, password) => dispatch => {
     axios.post('user/token/', {email: email, password:password}, {

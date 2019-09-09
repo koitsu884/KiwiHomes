@@ -3,13 +3,14 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import history from '../../history';
 import { toast } from 'react-toastify';
+import keys from '../../config/keys';
 
 import RegionDropdown from '../common/RegionDropdown';
 import CityDropdown from '../common/CityDropdown';
 import SuburbDropdown from '../common/SuburbDropdown';
 import TextFieldGroup from '../common/TextFieldGroup';
 
-const apiBaseURL = process.env.REACT_APP_API_URL;
+const apiBaseURL = keys.apiURL;
 
 class PropertyEditForm extends Component {
     constructor(props) {
