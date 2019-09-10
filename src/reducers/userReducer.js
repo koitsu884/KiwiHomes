@@ -1,19 +1,14 @@
-import { SIGN_IN, SIGN_OUT} from '../actions/types';
+import { SIGN_IN, SIGN_OUT } from '../actions/types';
 
 const INITIAL_STATE = {
-    // token: null,
-    // user: null
-    token: 'abcde',//For test
-    user: {
-        displayName: 'test',
-        user_type: 'Admin'
-    }
+    token: null,
+    user: null
 };
 
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case SIGN_OUT:
-            return { token: null, user:null };
+            return { token: null, user: null };
         case SIGN_IN:
             return {
                 ...state,
