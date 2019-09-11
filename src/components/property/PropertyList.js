@@ -15,10 +15,6 @@ class PropertyList extends Component {
         this.props.getProperties();
     }
 
-    handleEdit = (id) => {
-
-    }
-
     handleDelete = (id) => {
         Alert.confirm('Are you sure to delete the property?')
             .then((result) => {
@@ -36,8 +32,8 @@ class PropertyList extends Component {
                     return (
                         <div key={property.id}>
                             <PropertyRow property={property} />
-                            {/* <button type="button" className="btn btn--green">Edit</button> */}
-                            <button type="button" onClick={() => this.handleDelete(property.id)} className="btn btn--red">Delete</button>
+                            <Link to={`/admin/property/${property.id}/edit`} type="button" className="btn btn--green">Edit</Link>
+                            <a onClick={() => this.handleDelete(property.id)} className="btn btn--red">Delete</a>
                         </div>
                     )
                 })

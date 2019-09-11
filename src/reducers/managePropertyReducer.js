@@ -1,4 +1,4 @@
-import { MANAGE_SET_PROPERTIES, MANAGE_DELETE_PROPERTY} from '../actions/types';
+import { MANAGE_SET_PROPERTY, MANAGE_CLEAR_PROPERTY, MANAGE_SET_PROPERTIES, MANAGE_DELETE_PROPERTY} from '../actions/types';
 
 const INITIAL_STATE = {
     properties: [],
@@ -7,6 +7,16 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
+        case MANAGE_CLEAR_PROPERTY:
+            return {
+                ...state,
+                propertyDetails: null
+            }
+        case MANAGE_SET_PROPERTY:
+            return {
+                ...state,
+                propertyDetails: action.payload
+            }
         case MANAGE_SET_PROPERTIES:
             return {
                 ...state,

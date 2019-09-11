@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
+import { manageClearProperty, getProperty} from '../../actions/manageActions';
 import history from '../../history';
 import { toast } from 'react-toastify';
 import keys from '../../config/keys';
@@ -26,7 +27,41 @@ class PropertyEditForm extends Component {
             propertyType: 'House',
             rooms: 1,
             price: 0,
-            errors: {}
+            errors: {},
+            loading: false,
+        }
+    }
+
+    componentDidMount(){
+        const {propertyId} = this.props;
+        if(propertyId){
+            this.setState({
+                loading:true
+            })
+            this.props.getProperty(propertyId);
+        }
+    }
+
+    componentWillUnmount(){
+        this.props.manageClearProperty();
+    }
+
+    componentWillReceiveProps(nextProps){
+        if(nextProps.propertyDetails){
+            let details = Object.assign({}, nextProps.propertyDetails);
+            this.setState({
+                loading: false,
+                title: details.title,
+                image: null,
+                imagePreviewUrl: details.image,
+                region: details.region.id,
+                city: details.city.id,
+                suburb: details.suburb.id,
+                address: details.address,
+                propertyType: details.propertyType,
+                rooms: details.rooms,
+                price: details.price,
+            })
         }
     }
 
@@ -61,7 +96,9 @@ class PropertyEditForm extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         let form_data = new FormData();
-        form_data.append('image', this.state.image, this.state.image.name);
+        if(this.state.image){
+            form_data.append('image', this.state.image, this.state.image.name);
+        }
         form_data.append('title', this.state.title);
         form_data.append('region_id', +this.state.region);
         form_data.append('city_id', +this.state.city);
@@ -72,25 +109,43 @@ class PropertyEditForm extends Component {
         form_data.append('price', +this.state.price);
         form_data.append('user', this.props.userId);
 
-        for (var pair of form_data.entries()) {
-            console.log(pair[0]+ ', ' + pair[1]); 
-        }
+        // for (var pair of form_data.entries()) {
+        //     console.log(pair[0]+ ', ' + pair[1]); 
+        // }
 
-        axios.post('property/properties/', form_data, {
-            baseURL: apiBaseURL,
-            headers: {
-                'content-type': 'multipart/form-data'
-            }
-        })
-        .then(res => {
-            toast.success("Added the property");
-            history.push('/admin/property')
-            console.log(res.data);
-        })
-        .catch(err => console.log(err))
+        if(this.props.propertyId)
+        {
+            axios.patch(`property/properties/${this.props.propertyId}/`, form_data, {
+                baseURL: apiBaseURL,
+                headers: {
+                    'content-type': 'multipart/form-data'
+                }
+            })
+            .then(res => {
+                toast.success("Added the property");
+                history.push('/admin/property')
+                console.log(res.data);
+            })
+            .catch(err => console.log(err))
+        }
+        else{
+            axios.post('property/properties/', form_data, {
+                baseURL: apiBaseURL,
+                headers: {
+                    'content-type': 'multipart/form-data'
+                }
+            })
+            .then(res => {
+                toast.success("Added the property");
+                history.push('/admin/property')
+                console.log(res.data);
+            })
+            .catch(err => console.log(err))
+        }
     };
 
     render() {
+        if(this.state.loading) return <div>Loading property info...</div>
         let { imagePreviewUrl } = this.state;
         let $imagePreview = null;
         if (imagePreviewUrl) {
@@ -116,7 +171,7 @@ class PropertyEditForm extends Component {
                     <h5>Main image</h5>
                     <label className="fileContainer">
                         Select file
-                        <input type="file" accept="image/*" onChange={this.handleImageChange} required />
+                        <input type="file" accept="image/*" onChange={this.handleImageChange} required={this.props.propertyId ? "" : "required"} />
                     </label>
                     <div className="propertyEditForm__image__preview">
                         {$imagePreview}
@@ -195,7 +250,8 @@ class PropertyEditForm extends Component {
 }
 
 const mapStateToProps = state => ({
-    userId: state.user.user.id
+    userId: state.user.user.id,
+    propertyDetails: state.manageProperty.propertyDetails
 })
 
-export default connect(mapStateToProps, null)( PropertyEditForm);
+export default connect(mapStateToProps, {manageClearProperty, getProperty})( PropertyEditForm);
